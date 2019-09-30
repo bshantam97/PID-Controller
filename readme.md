@@ -1,12 +1,18 @@
-# C++ Boilerplate
-[![Build Status](https://travis-ci.org/Arjung27/PID-Controller.svg?branch=master)](https://travis-ci.org/Arjung27/PID-Controller)
-[![Coverage Status](https://coveralls.io/repos/github/Arjung27/PID-Controller/badge.svg?branch=master)](https://coveralls.io/github/Arjung27/PID-Controller?branch=master)
+# PID Controller using Test Driven Development
+[![Build Status](https://travis-ci.org/bshantam97/PID-Controller.svg?branch=master)](https://travis-ci.org/Arjung27/PID-Controller)
+[![Coverage Status](https://coveralls.io/repos/github/bshantam97/PID-Controller/badge.svg?branch=master)](https://coveralls.io/github/bshantam97/PID-Controller?branch=master)
 ---
 
 ## Authors
+Part 1
 
 - Driver    : [Arjung27](https://github.com/Arjung27)
 - Navigator : [kartikmadhira1](https://github.com/kartikmadhira1)
+
+Part 2(Implementation)
+
+-Driver     : Shantam Bajpai
+-Navigator  : Saumil Shah
 
 ## Standard install via command-line
 ```
