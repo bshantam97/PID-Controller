@@ -36,12 +36,25 @@ vector<float> PidController::getGainValues() {
 void PidController::computePidError(float setPointVel,
                                     float inputVel,
                                     float prevError) {
-  return;
+    auto currentError = setPointVel - inputVel;
+    cumulativeError+=currentError;
+    controlError = Kp*currentError + Kd*(currentError - prevError)
+     + Ki*(cumulativeError);
+    if (controlError > threshold)
+        controlError = threshold;
+    else
+        std::cout << "Control error is:" << controlError;
+    cout << "New velocity is: " << controlError + inputVel << endl;
 }
 
 float PidController::getControlError() {
     return this->controlError;
 }
+
+// void PidController::printNewVelocity(float controlError, float inputVel) {
+//   double newVel = inputVel + controlError;
+//   cout <<"The new velocity is:" << newVel << endl;
+// }
 
 PidController::~PidController() {
 }
