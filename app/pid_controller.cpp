@@ -15,6 +15,7 @@ PidController::PidController() {
     this->Kd = 0;
     this->controlError = 0;
     this->cumulativeError = 0;
+    this->threshold = 0;
 }
 
 void PidController::setGainValues(float _kp, float _ki, float _kd) {
@@ -35,7 +36,7 @@ vector<float> PidController::getGainValues() {
 void PidController::computePidError(float setPointVel,
                                     float inputVel,
                                     float prevError) {
-	return;
+  return;
 }
 
 float PidController::getControlError() {
