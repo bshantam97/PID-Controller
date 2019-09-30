@@ -17,7 +17,7 @@ Part 2(Implementation)
 
 ## Standard install via command-line
 ```
-git clone --recursive https://github.com/dpiet/cpp-boilerplate
+git clone --recursive https://github.com/bshantam97/PID-Controller.git
 cd <path to repository>
 mkdir build
 cd build
