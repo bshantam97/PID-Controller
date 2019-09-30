@@ -66,6 +66,16 @@ class PidController {
      */
     void setThreshold(float _threshold);
     /**
+     * @brief Print new velocity using the control error and input
+     *        velocity
+     * @param controError A float value which denotes the PID 
+     *                    controller error at an instant.
+     * @param inputVel A float type value which denotes the input 
+     *                 velocity
+     * @return nothing
+     */
+    void PidController::printNewVelocity(float controlError, float inputVel);
+    /**
      * @brief Default Destructor
      */
     ~PidController();
@@ -79,5 +89,5 @@ class PidController {
     // Cumulative error for the controller
     double cumulativeError;
     // control error for the controller
-    double controlError;
+    float controlError;
 };
