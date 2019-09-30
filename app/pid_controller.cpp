@@ -43,10 +43,5 @@ float PidController::getControlError() {
     return this->controlError;
 }
 
-void PidController::printNewVelocity(float controlError, float inputVel) {
-  double newVel = inputVel + controlError;
-  cout << newVel << endl;
-}
-
 PidController::~PidController() {
 }
