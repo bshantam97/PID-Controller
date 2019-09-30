@@ -74,7 +74,7 @@ class PidController {
      *                 velocity
      * @return nothing
      */
-    void PidController::printNewVelocity(float controlError, float inputVel);
+    void printNewVelocity(float controlError, float inputVel);
     /**
      * @brief Default Destructor
      */
