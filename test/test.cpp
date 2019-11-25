@@ -15,10 +15,18 @@
 
 using ::testing::_;
 
+/*
+ * @brief: The mock class for testing the functionality of PidController
+ */
+
 class MockPid : public PidController {
  public:
   MOCK_METHOD3(computePidError , float(float,float,float));
 };
+
+/*
+ * @brief Tests the MOCK_METHOD
+ */
 
 TEST(mockPid , computeError) {
   MockPid mockpid;
