@@ -3,6 +3,28 @@
 [![Coverage Status](https://coveralls.io/repos/github/bshantam97/PID-Controller/badge.svg?branch=master)](https://coveralls.io/github/bshantam97/PID-Controller?branch=master)
 ---
 
+## GMock
+
+For this assignment I wrote a mock class to test the functionality of the computePidError method
+```
+class MockPid : public PidController {
+ public:
+  MOCK_METHOD3(computePidError , float(float,float,float));
+};
+```
+Above is the mock method and the mock class that I used to test this functionality.
+
+## Standard Install via command line
+```
+git clone -b GMock_Extra_Credit --single-branch https://github.com/bshantam97/PID-Controller.git
+cd <path-to-repository>
+mkdir -p build 
+cd build
+cmake ../
+make 
+Run tests: ./test/cpp-test
+```    
+
 ## Authors
 Part 1
 
@@ -129,3 +151,4 @@ perspetive view (or Windows->Perspective->Open Perspective->C/C++).
 - Git
 
     It is possible to manage version control through Eclipse and the git plugin, but it typically requires creating another project. If you're interested in this, try it out yourself and contact me on Canvas.
+
