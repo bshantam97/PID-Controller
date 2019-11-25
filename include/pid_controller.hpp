@@ -50,7 +50,7 @@ class PidController {
      * @param prevError This is the error from the previous instant at which
      *                  PID controller error was calculated.
      */
-  virtual void computePidError(float setPointVel, float inputVel,
+  virtual float computePidError(float setPointVel, float inputVel,
                                float prevError);
     /**
      * @brief This function returns the error calculated by the PID controller
@@ -58,7 +58,7 @@ class PidController {
      * @return A float value which denotes the PID controller error at an
      *         instant.
      */
-  virtual float getControlError();
+  // virtual float getControlError();
     /**
      * @brief This function sets the threshold value for the control error
      * beyond which the PID controller outputs the saturation value.
@@ -71,7 +71,7 @@ class PidController {
      */
   virtual ~PidController();
 
- private:
+ protected:
     /** Declares the variables for proportional gain, integral gain,
      * differential gain and the threshold limit for saturation, in
      * the same order.

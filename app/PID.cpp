@@ -22,36 +22,41 @@
  SOFTWARE.
  */
 
-#ifndef INCLUDE_PID_HPP_
-#define INCLUDE_PID_HPP_
+#include<PID.hpp>
+#include<../include/pid_controller.hpp>
 
-#include<pid_controller.hpp>
+PID::PID() {
+  Kp = 2;
+  Ki = 3;
+  Kd = 4;
+  threshold = 5;
+}
 
-class PID : public PidController {
- public:
-  /*
-   * @brief: Default constructor
-   */
-  PID();
-  /*
-   * @brief: Constructor Initialization
-   * @param: Kp is the proportional gain
-   * @param: Ki is the Integral gain
-   * @param: Kd is the derivative gain
-   */
-  PID(float Kp, float Ki, float Kd, float threshold);
-  /*
-   * @brief: gets the control error e(t)
-   */
-  float getControlError();
-  /*
-   * @brief computes the Pid error e(t)
-   */
-  float computePidError(float setPointVel, float inputVel, float prevError);
+PID::PID(float kp, float ki, float kd, float thresHold) {
+  Kp = kp;
+  Ki = ki;
+  Kd = kd;
+  threshold = thresHold;
+  cumulativeError = 0;
+  controlError = 0;
+}
 
-  /*
-   * @brief: Destructor method for PID Class
-   */
-  ~PID();
-};
-#endif /*INCLUDE_PID_HPP_*/
+float PID::computePidError(float setPointVel, float inputVel, float prevError) {
+  auto currentError = setPointVel - inputVel;
+  cumulativeError += currentError;
+  controlError = Kp * currentError + Kd * (currentError - prevError)
+      + Ki * (cumulativeError);
+  /*if (controlError > threshold)
+    controlError = threshold;
+  else
+    std::cout << "Control error is:" << controlError;
+   cout << "New velocity is: " << controlError + inputVel << endl;*/
+  return controlError;
+}
+
+PID::~PID() {
+  std::cout << "Destructor called";
+}
+/*float PID::getControlError() {
+  return this->controlError;
+ }*/

@@ -1,6 +1,6 @@
 /**@file pid_controller.cpp
  * @brief This file containts definitions for functions
- * declared in header file.    
+ * declared in header file.
  * @author     : Arjun Gupta
  * @created on : Sep 27, 2019
  * @copyright  : This code is written for ENPM808X. Please
@@ -33,7 +33,7 @@ vector<float> PidController::getGainValues() {
     return gains;
 }
 
-void PidController::computePidError(float setPointVel,
+/*void PidController::computePidError(float setPointVel,
                                     float inputVel,
                                     float prevError) {
     auto currentError = setPointVel - inputVel;
@@ -45,11 +45,11 @@ void PidController::computePidError(float setPointVel,
     else
         std::cout << "Control error is:" << controlError;
     cout << "New velocity is: " << controlError + inputVel << endl;
-}
+ }*/
 
-float PidController::getControlError() {
+/*float PidController::getControlError() {
     return this->controlError;
-}
+ }*/
 
 // void PidController::printNewVelocity(float controlError, float inputVel) {
 //   double newVel = inputVel + controlError;
