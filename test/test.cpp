@@ -21,7 +21,7 @@ using ::testing::_;
 
 class MockPid : public PidController {
  public:
-  MOCK_METHOD3(computePidError , float(float,float,float));
+  MOCK_METHOD3(computePidError, float(float, float, float));
 };
 
 /*
