@@ -40,10 +40,14 @@ class PID : public PidController {
    * @param: Kd is the derivative gain
    */
   PID(float Kp, float Ki, float Kd, float threshold);
-  /*
-   * @brief: gets the control error e(t)
+
+  /**
+   * @brief This function returns the gain values set by the user.
+   * @return A float vector that contains the gain values
+   * in the order Kp,Ki and Kd in the vector.
    */
-  float getControlError();
+  vector<float> getGainValues();
+
   /*
    * @brief computes the Pid error e(t)
    */

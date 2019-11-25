@@ -23,13 +23,13 @@
  */
 
 #include<PID.hpp>
-#include<../include/pid_controller.hpp>
+
 
 PID::PID() {
-  Kp = 2;
-  Ki = 3;
-  Kd = 4;
-  threshold = 5;
+  Kp = 0;
+  Ki = 0;
+  Kd = 0;
+  threshold = 0;
 }
 
 PID::PID(float kp, float ki, float kd, float thresHold) {
@@ -52,6 +52,14 @@ float PID::computePidError(float setPointVel, float inputVel, float prevError) {
     std::cout << "Control error is:" << controlError;
    cout << "New velocity is: " << controlError + inputVel << endl;*/
   return controlError;
+}
+/*
+ * @brief get gain value
+ */
+
+vector<float> PID::getGainValues() {
+  vector<float> gains = { this->Kp, this->Ki, this->Kd };
+  return gains;
 }
 
 PID::~PID() {

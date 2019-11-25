@@ -3,8 +3,8 @@
  *        Contains the required headers and methods.
  *
  * Detailed description follows here.
- * @author     : Arjun Gupta
- * @created on : Sep 27, 2019
+ * @author     : Shantam Bajpai
+ * @created on : November 24th, 2019
  * @copyright  : This code is written for ENPM808X. Please
  *               cite if code is used.
  */
@@ -20,9 +20,9 @@ class MockPid : public PidController {
 
 TEST(mockPid , computeError) {
   MockPid mockpid;
-  PID pid;
-  EXPECT_CALL(mockpid , computePidError(2,3,4)).Times(1);
-  EXPECT_EQ(pid.computePidError(2, 3, 4), -25);
+  PidController pid;
+  EXPECT_CALL(mockpid , computePidError(0,0,0)).Times(1);
+  ASSERT_EQ(pid.computePidError(0, 0, 0), 0);
 }
 
 /**
@@ -31,15 +31,15 @@ TEST(mockPid , computeError) {
  * getGainValues() function are same or not.
  */
 TEST(checkValues, shouldPass) {
-  PidController pid;
-  pid.setGainValues(2, 3, 4);
+  PID myPid;
+  myPid.setGainValues(2, 3, 4);
   vector<float> inputValues = {2.0, 3.0, 4.0};
   int i = 0;
   /** This range based loop iterated over the values returned by
    * getGainValues() function and the code in it matches the values obtained
    * with the values obtained from inputValues vector.
   */
-  for (auto &values : pid.getGainValues()) {
+  for (auto &values : myPid.getGainValues()) {
     ASSERT_EQ(values, inputValues[i]);
     i++;
     }
