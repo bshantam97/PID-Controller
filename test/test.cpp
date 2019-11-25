@@ -13,6 +13,8 @@
 #include "../include/pid_controller.hpp"
 #include <PID.hpp>
 
+using ::testing::_;
+
 class MockPid : public PidController {
  public:
   MOCK_METHOD3(computePidError , float(float,float,float));
@@ -20,9 +22,12 @@ class MockPid : public PidController {
 
 TEST(mockPid , computeError) {
   MockPid mockpid;
-  PidController pid;
-  EXPECT_CALL(mockpid , computePidError(0,0,0)).Times(1);
-  ASSERT_EQ(pid.computePidError(0, 0, 0), 0);
+  PID pid;
+  EXPECT_CALL(mockpid , computePidError(_, _, _)).Times(1);
+  mockpid.computePidError(9, 4, 2);
+  pid.setGainValues(1, 2, 4);
+  pid.setThreshold(10);
+  EXPECT_EQ(27, pid.computePidError(9, 4, 2));
 }
 
 /**
